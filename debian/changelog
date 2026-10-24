@@ -1,0 +1,8 @@
+rtl8761bu-firmware (1.9.1038.3023-1) noble; urgency=medium
+
+  * Initial release of Realtek RTL8761BU Bluetooth 5.4 firmware (0xddd5c761)
+    extracted from official Windows WHQL driver 1.9.1038.3023.
+  * Fixes Xbox Wireless Controller (Series X|S) BLE disconnect loop on
+    Ubuntu / Kubuntu 24.04+ without conflicting with linux-firmware.
+
+ -- Yuri Nogueira <personal@yurinogueira.dev.br>  Fri, 23 Oct 2026 23:15:00 -0300

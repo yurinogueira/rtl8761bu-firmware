@@ -1,0 +1,27 @@
+#!/bin/sh
+set -e
+
+reload_btusb() {
+    if command -v lsmod >/dev/null 2>&1 && lsmod | grep -q '^btusb '; then
+        echo "==> Reloading btusb module to apply Realtek RTL8761BU firmware (0xddd5c761) in RAM..."
+        modprobe -r btusb 2>/dev/null || true
+        sleep 1
+        modprobe btusb 2>/dev/null || true
+        if command -v systemctl >/dev/null 2>&1 && systemctl is-active --quiet bluetooth.service; then
+            systemctl restart bluetooth.service 2>/dev/null || true
+        fi
+    fi
+}
+
+case "$1" in
+    configure)
+        if command -v update-initramfs >/dev/null 2>&1; then
+            update-initramfs -u || true
+        fi
+        reload_btusb
+        echo "==> RTL8761BU firmware 0xddd5c761 (Bluetooth 5.4) installed in /usr/lib/firmware/updates/rtl_bt/"
+        ;;
+esac
+
+#DEBHELPER#
+exit 0

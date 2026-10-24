@@ -1,0 +1,17 @@
+#!/usr/bin/make -f
+
+%:
+	dh $@
+
+override_dh_auto_build:
+	zstd -q -f -k rtl8761bu_fw.bin
+	zstd -q -f -k rtl8761bu_config.bin
+
+override_dh_auto_install:
+	install -Dm644 rtl8761bu_fw.bin debian/rtl8761bu-firmware/usr/lib/firmware/updates/rtl_bt/rtl8761bu_fw.bin
+	install -Dm644 rtl8761bu_fw.bin.zst debian/rtl8761bu-firmware/usr/lib/firmware/updates/rtl_bt/rtl8761bu_fw.bin.zst
+	install -Dm644 rtl8761bu_config.bin debian/rtl8761bu-firmware/usr/lib/firmware/updates/rtl_bt/rtl8761bu_config.bin
+	install -Dm644 rtl8761bu_config.bin.zst debian/rtl8761bu-firmware/usr/lib/firmware/updates/rtl_bt/rtl8761bu_config.bin.zst
+
+override_dh_auto_clean:
+	rm -f rtl8761bu_fw.bin.zst rtl8761bu_config.bin.zst

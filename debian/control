@@ -1,0 +1,26 @@
+Source: rtl8761bu-firmware
+Section: kernel
+Priority: optional
+Maintainer: Yuri Nogueira <personal@yurinogueira.dev.br>
+Build-Depends: debhelper-compat (= 13), zstd
+Standards-Version: 4.6.2
+Homepage: https://github.com/yurinogueira/rtl8761bu-firmware
+Vcs-Git: https://github.com/yurinogueira/rtl8761bu-firmware.git
+Vcs-Browser: https://github.com/yurinogueira/rtl8761bu-firmware
+
+Package: rtl8761bu-firmware
+Architecture: all
+Depends: ${misc:Depends}
+Recommends: linux-firmware
+Description: Updated Realtek RTL8761BU Bluetooth 5.4 firmware (0xddd5c761)
+ Official Realtek RTL8761BU / RTL8761BUV USB Bluetooth 5.4 firmware
+ (fw version 0xddd5c761, extracted from Windows WHQL driver 1.9.1038.3023).
+ .
+ Fixes the Xbox Wireless Controller (Series X|S) Bluetooth Low Energy
+ disconnect loop caused by the May 2023 0xdfc6d922 regression in
+ linux-firmware on adapters such as the TP-Link UB500 (2357:0604),
+ UB500 Plus, Mercusys MA530, and ASUS USB-BT500, while upgrading the
+ adapter from Bluetooth 5.1 to Bluetooth 5.4.
+ .
+ Installs into /usr/lib/firmware/updates/rtl_bt/ so it takes priority
+ over linux-firmware without package file conflicts on Ubuntu and Kubuntu.

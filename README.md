@@ -40,6 +40,14 @@ yay -S rtl8761bu-firmware
 
 The package automatically installs the firmware override into `/usr/lib/firmware/updates/rtl_bt/` and reloads `btusb` so the new firmware is active immediately without rebooting.
 
+### Ubuntu / Kubuntu / Linux Mint / Pop!_OS 24.04+ (Launchpad PPA)
+
+```bash
+sudo add-apt-repository ppa:yurinogueira/rtl8761bu-firmware
+sudo apt update
+sudo apt install rtl8761bu-firmware
+```
+
 ### Manual Installation (Any Linux Distribution)
 
 ```bash
