@@ -1,4 +1,4 @@
-rtl8761bu-firmware (1.9.1038.3023-1) noble; urgency=medium
+rtl8761bu-firmware (1.9.1038.3023) noble; urgency=medium
 
   * Initial release of Realtek RTL8761BU Bluetooth 5.4 firmware (0xddd5c761)
     extracted from official Windows WHQL driver 1.9.1038.3023.
